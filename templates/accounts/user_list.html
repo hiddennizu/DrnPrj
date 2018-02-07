@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block links %}
+
+{% endblock %}
+
+{% block body %}
+
+    {% for user in users %}
+
+        <div>
+            <ul>
+                <li>{{ user.username }}
+                {% if user.first_name %}First_Name : <li>{{ user.first_name }}</li>{% endif %}
+               Last_Name: <li> {{ user.last_name }}</li>
+            <li>{{ user.is_staff }}</li>
+            {% if not user.is_staff  %}
+
+
+            {% endif %}
+            </ul>
+        </div>
+
+
+
+    {% endfor %}
+{% endblock %}

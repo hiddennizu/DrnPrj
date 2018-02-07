@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Configurations {% endblock %}
+{% block body %}
+
+    <main class="main-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>configuration |
+                        <small>Home</small>
+                    </h4>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'configuration:configuration' %}">configuration</a></li>
+                        <li class="active">courses</li>
+                    </ol>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <a href="{% url 'course:course_list' %}" data-toggle="tooltip"
+                       title="Add / Update /Delete Courses">
+
+                        <div class="page-div-wrapper bk-clr-page-one">
+                            <i class="fa fa-cog page-div-icon"></i>
+                            <h4 class="list-group-item-heading">Manage Course</h4>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="{% url 'course:course' %}" data-toggle="tooltip"
+                       title="Add / Update /Delete Batches">
+
+                        <div class="page-div-wrapper bk-clr-page-one">
+                            <i class="fa fa-cog page-div-icon"></i>
+                            <h4 class="list-group-item-heading">Manage Batch</h4>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="{% url 'course:course' %}" data-toggle="tooltip"
+                       title="Add / Update /Delete Sections">
+
+                        <div class="page-div-wrapper bk-clr-page-one">
+                            <i class="fa fa-cog page-div-icon"></i>
+                            <h4 class="list-group-item-heading">Manage Section</h4>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Home{% endblock %}</title>
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Note: Try to remove the following lines to see the effect of CSS positioning */
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 9999 !important;
+        }
+
+        .affix + .container-fluid {
+            padding-top: 70px;
+        }
+    </style>
+
+</head>
+<body>
+{% block affix %}
+    <div class="container-fluid ">
+        <img class="img-responsive  " src="{% static 'images/bkhis.png' %}" alt="BPKIHS logo"/>
+    </div>
+{% endblock %}
+{% block navbar %}
+    <nav class="navbar navbar-inverse  set-radius-zero">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-home" style="color: white;"></i>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="navlinks"><a href="#">Home</a></li>
+                    <li class="navlinks"><a href="#">Page 1</a></li>
+                    <li class="navlinks"><a href="#">Page 2</a></li>
+                    <li class="navlinks"><a href="#">Page 3</a></li>
+                </ul>
+                {#                <ul class="nav navbar-nav navbar-right">#}
+                {#                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>#}
+                {#                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>#}
+                {#                </ul>#}
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+
+
+
+{% endblock %}
+
+
+<!-- optional js -->
+<script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>
+
+<!--jquery popper   and bootstrapjs -->
+
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+{% block javascript %}
+
+{% endblock %}
+</body>
+</html>

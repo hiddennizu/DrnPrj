@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+{% endblock %}
+{% block javascript %}
+    <script src="{% static 'js/course.js' %}"></script>
+{% endblock %}
+{% block body %}
+
+
+    <main class="main-wrapper">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">Books</h1>
+
+                    <!-- BUTTON TO TRIGGER THE ACTION -->
+                    <p>
+                        <button type="button" class="btn btn-primary js-create-book">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            New course
+                        </button>
+                    </p>
+
+                    <table class="table" id="book-table">
+                        <!-- TABLE CONTENT SUPPRESSED FOR BREVITY'S SAKE -->
+                    </table>
+
+                    <!-- THE MODAL WE WILL BE USING -->
+                    <div class="modal fade" id="modal-book">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>configuration |
+                            <small>Home</small>
+                        </h4>
+                        <p>
+                            <button type="button" class="btn btn-primary btn-sm js-create-book pull-right">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                New Course
+                            </button>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="{% url 'configuration:configuration' %}">configuration</a></li>
+                            <li><a href="{% url 'course:course' %}">courses</a></li>
+                            <li class="active">Manage Courses</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="course-table" class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th style="width:5%;">S.N.</th>
+                                <th>Course</th>
+                                <th>Code</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for course in courses %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ course.name }}</td>
+                                    <td>{{ course.code }}</td>
+                                    <td>
+                                        <a href="{% url 'course:course_edit' pk=course.id %}">
+                                            <button class="btn btn-primary btn-sm" data-toggle="modal"
+                                                    data-target="#myModal"><i class="fa fa-edit"></i> Edit
+                                            </button>
+                                        </a>
+                                        <button data-toggle="modal" data-target="#course-{{ course.id }}"
+                                                class="btn btn-danger btn-sm"><i
+                                                class="fa fa-trash"></i>Delete
+                                        </button>
+                                    </td>
+                                    <!-- Modal for delete-->
+                                    <div class="modal fade" id="course-{{ course.id }}" role="dialog">
+
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="width: 100%">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal">X</button>
+
+                                                    <h4>Are You Sure You Want To Delete Course
+                                                        <strong>{{ course.name }}</strong>? </h4>
+
+                                                    <a href="{% url 'course:course_delete' pk=course.id %}">
+                                                        <button type="button" class="btn btn-danger btn-md ">Yes
+                                                        </button>
+                                                    </a>
+                                                    <button type="button" class="btn btn-primary btn-md"
+                                                            data-dismiss="modal">NO
+                                                    </button>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="7" class="text-center bg-warning">No Course</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+    </main>
+    <div class="modal fade" id="modal-book">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+{% endblock %}

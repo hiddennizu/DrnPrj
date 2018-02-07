@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}configuration{% endblock %}
+{% block script %}
+
+
+
+{% endblock %}
+{% block body %}
+
+    <main class="main-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>configuration |
+                        <small>Home</small>
+                    </h4>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">configuration</li>
+                    </ol>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <a href="{% url 'course:course' %}" data-toggle="tooltip"
+                       title="Add a new course or batch or section for this academic year ">
+
+                        <div class="page-div-wrapper bk-clr-page-one">
+                            <i class="fa fa-book page-div-icon"></i>
+                            <h4 class="list-group-item-heading">Manage Course/Batch/Section</h4>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="col-md-3 text-center">
+
+                </div>
+                <div class="col-md-3 text-center">
+
+                </div>
+                <div class="col-md-3 text-center">
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}
